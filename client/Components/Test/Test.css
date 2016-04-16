@@ -1,0 +1,9 @@
+:root {
+  --color: #43ac6a;
+  --text: #333;
+}
+
+#test-component {
+  background: var(--color);
+  color: var(--text);
+}
