@@ -22,17 +22,15 @@
   "license": "WTFPL",
   "dependencies": {
     "body-parser": "^1.15.0",
-    "colors": "^1.1.2",
     "cookie-parser": "^1.4.1",
-    "es6-module-loader": "^0.17.11",
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
+    "jquery": "^2.2.3",
     "materialize-css": "^0.97.6",
     "morgan": "^1.7.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
-    "traceur": "0.0.107",
-    "traceur-source-maps": "^1.0.6"
+    "recursive-readdir-sync": "^1.0.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -42,7 +40,6 @@
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.7.2",
     "css-loader": "^0.23.1",
-    "cssnext": "^1.8.4",
     "html-loader": "^0.4.3",
     "postcss-browser-reporter": "^0.4.0",
     "postcss-cssnext": "^2.5.2",
