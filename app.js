@@ -28,6 +28,7 @@ app.use(morgan('combined', { stream: accessLogStream }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use('/materialize', express.static(__dirname + '/node_modules/materialize-css/dist/'));
 app.use(express.static(path.join(__dirname, 'builds')));
 
 app.use('/', routes);

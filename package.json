@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "webpack",
     "start": "nodemon index ENV=production",
-    "debug": "webpack --watch && nodemon index ENV=development",
+    "debug": "webpack && nodemon index ENV=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
