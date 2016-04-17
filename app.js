@@ -26,10 +26,11 @@ app.set('view engine', 'handlebars');
 // setup the loggers
 app.use(expressWinston.logger({
   transports: [
-    new winston.transports.File({
-      filename: './error.log',
-      level: 'info'
-    }),
+    // uncomment this to log errors to a log file
+    // new winston.transports.File({
+    //   filename: './error.log',
+    //   level: 'info'
+    // }),
     new winston.transports.Console({
       json: true,
       level: 'error'
@@ -71,7 +72,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
 
   responseObject.message = ReactDOMServer.renderToString(<Content className="col s12" title={title} contents={message} />);
-  
+
   if (app.get('env') === 'development')
     responseObject.error = ReactDOMServer.renderToString(<Content className="col s12" contents={err} />);
 
