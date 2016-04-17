@@ -47,12 +47,12 @@ router.get('/', (req, res, next) => {
 router.get('/read/:dir/:name', (req, res, next) => {
   const title = req.params.name;
   const friendlyTitle = getFriendlyName(title);
-  const dirName = req.params.dir.toLowerCase();
+  const dirName = req.params.dir
   let fileContents;
 
   // Try to read this file
   try {
-    fileContents = fs.readFileSync(path.join(repoPath, dirName, title + '.md'));
+    fileContents = fs.readFileSync(path.join(repoPath, dirName.toLowerCase(), title + '.md'));
   }
   catch(err) {
     logger.log('error', err);
