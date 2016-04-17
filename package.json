@@ -31,6 +31,7 @@
     "marky-markdown": "^7.0.0",
     "materialize-css": "^0.97.6",
     "morgan": "^1.7.0",
+    "nodemon": "^1.9.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "recursive-readdir": "^2.0.0",
