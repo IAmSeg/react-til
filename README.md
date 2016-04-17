@@ -20,8 +20,8 @@ Mocha is setup for running regular JavaScript tests. Run `npm test` to run the t
 
 ### Running
 
-`npm start` will run webpack and then nodemon with an environment variable set to PRODUCTION.
+`npm start` will run webpack witih production config and then nodemon with an environment variable set to PRODUCTION.
 
-`npm run debug` will run webpack and then nodemon with an environment variable set to DEVELOPMENT.
+`npm run debug` will run webpack with dev config and then nodemon with an environment variable set to DEVELOPMENT.
 
 App will be running on `localhost:3000`

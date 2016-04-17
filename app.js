@@ -24,6 +24,10 @@ app.use(expressWinston.logger({
     new winston.transports.File({
       filename: './error.log',
       level: 'info'
+    }),
+    new winston.transports.Console({
+      json: true,
+      level: 'error'
     })
   ]
 }));
@@ -37,7 +41,6 @@ app.use(cookieParser());
 
 // Static dirs
 app.use('/scripts', express.static(path.join(__dirname, 'node_modules/')));
-app.use('/styles', express.static(path.join(__dirname, 'client/styles')));
 app.use('/materialize', express.static(path.join(__dirname ,'node_modules/materialize-css/')));
 app.use(express.static(path.join(__dirname, 'builds')));
 
