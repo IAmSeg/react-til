@@ -31,6 +31,7 @@ app.use(cookieParser());
 
 // Static dirs
 app.use('/scripts', express.static(path.join(__dirname, 'node_modules/')));
+app.use('/styles', express.static(path.join(__dirname, 'client/styles')));
 app.use('/materialize', express.static(path.join(__dirname ,'node_modules/materialize-css/')));
 app.use(express.static(path.join(__dirname, 'builds')));
 

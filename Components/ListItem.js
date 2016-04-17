@@ -7,6 +7,7 @@ export default class ListItem extends Base {
   }
 
   render() {
-    return <li className="collection-item"><a href="#">{this.props.fileName}</a></li>  
+    let link = `/read/${this.props.dirName}/${this.props.fileName}`;
+    return <li className="collection-item"><a href={link}>{this.props.friendlyName}</a></li>
   }
 }
