@@ -33,6 +33,7 @@
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "recursive-readdir": "^2.0.0",
+    "webpack": "^1.13.0",
     "winston": "^2.2.0"
   },
   "devDependencies": {
