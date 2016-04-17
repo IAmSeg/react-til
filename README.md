@@ -13,6 +13,8 @@ You can see the a sample of the app deployed on Heroku [here](https://shrouded-a
 
 Set the `repoPath` variable in `utilities/file-utilities.js` to your directory or git repo.
 
+Your files names should be dasherized, like `this-is-my-file.md`.
+
 ### Server Side Rendering
 
 All the pages are rendered server-side using isomorphic React. React could also be used on the client-side to make interactive components but this has not been done currently, although Webpack is setup and able to handle es6/react/jsx files, as well as importing HTML and PostCSS files. Client-side files goes in the `client` folder.
