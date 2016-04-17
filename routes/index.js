@@ -47,7 +47,7 @@ router.get('/', (req, res, next) => {
 router.get('/read/:dir/:name', (req, res, next) => {
   const title = req.params.name;
   const friendlyTitle = getFriendlyName(title);
-  const dirName = req.params.dir;
+  const dirName = req.params.dir.toLowerCase();
   let fileContents;
 
   // Try to read this file
