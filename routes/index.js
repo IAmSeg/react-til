@@ -14,7 +14,12 @@ import marky from 'marky-markdown';
 import winston from 'winston';
 const logger = new (winston.Logger)({
   transports: [
-    new (winston.transports.File)({ filename: '../error.log', level: 'error' })
+    // uncomment to log to file
+    // new (winston.transports.File)({ filename: '../error.log', level: 'error' })
+    new winston.transports.Console({
+      json: true,
+      level: 'error'
+    })
   ]
 });
 
