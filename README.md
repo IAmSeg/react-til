@@ -6,7 +6,7 @@
 
 # React TIL
 
-A small "Today I Learned" application written using Node, express and React. This app will read from a file system and generate a hierarchy of "TILs" and display them on a web page. You could point this app at a git repo and let all your people commit to it and let the app do its thing.
+A small "Today I Learned" application written using Node, express and React. This app will read from a directory containing markdown files and generate a hierarchy of "TILs" and display them on a web page. You could point this app at a git repo and let all your people commit to it and let the app do its thing.
 
 You can see the a sample of the app deployed on Heroku [here](https://shrouded-anchorage-80753.herokuapp.com)
 
@@ -14,7 +14,7 @@ You can see the a sample of the app deployed on Heroku [here](https://shrouded-a
 
 Set the `repoPath` variable in `utilities/file-utilities.js` to your directory or git repo.
 
-Your files names should be dasherized, like `this-is-my-file.md`.
+Your files should be markdown and names should be dasherized, like `this-is-my-file.md`.
 
 ### Server Side Rendering
 
