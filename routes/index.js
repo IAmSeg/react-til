@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
 
     // Render our index view with the List and Header components
     const list = ReactDOMServer.renderToString(<List files={files} basePath={repoPath}/>);
-    const header = ReactDOMServer.renderToString(<Header color="pink" className="col s12 center-align" title="TIL" />);
+    const header = ReactDOMServer.renderToString(<Header color="pink" className="col s12" title="TIL" />);
     res.render('index', { list, header });
   });
 });
@@ -37,7 +37,7 @@ router.get('/read/:dir/:name', (req, res, next) => {
   const markdown = marky(fileContents.toString()).html();
 
   // Build header component
-  const header = ReactDOMServer.renderToString(<Header color="blue" className="col s12 left-align" title="TIL" category={dirName} />);
+  const header = ReactDOMServer.renderToString(<Header color="blue" className="col s12" title="TIL" category={dirName} />);
   const contents = ReactDOMServer.renderToString(<Content className="col s12" contents={markdown} />);
 
   res.render('read', { header, contents, title, dirName });

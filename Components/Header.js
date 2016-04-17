@@ -1,6 +1,13 @@
 import React from 'react';
+import Base from './Base';
 
-export default class Header extends React.Component {
+/**
+ * Class for a material design navbar
+ * @props {title} - title for the nav
+ * @props {color} - material design color for the nav
+ * @props {category} - more specific category to display in the header
+ */
+export default class Header extends Base {
   constructor() {
     super();
   }

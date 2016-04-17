@@ -9,6 +9,7 @@ import { capitalize } from '../utilities/word-utilities';
 
 /**
  * Main class that holds the List of items
+ * @props {files} - list of files that go in this list
  */
 export default class List extends Base {
   constructor() {

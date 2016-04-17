@@ -3,6 +3,8 @@ import Base from './Base';
 
 /**
  * This class is responsible for displaying some content inside a container
+ * @props {className} - css class name to apply
+ * @props {contents} - contents to be displayed in the container
  */
 export default class Content extends Base {
   constructor() {
