@@ -8,7 +8,7 @@
 
 A small "Today I Learned" application written using Node, express and React. This app will read from a file system and generate a hierarchy of "TILs" and display them on a web page. You could point this app at a git repo and let all your people commit to it and let the app do its thing.
 
-You can see the a sample of the app deployed on Heroku [here](https://shrouded-anchorage-80753.herokuapp.com);
+You can see the a sample of the app deployed on Heroku [here](https://shrouded-anchorage-80753.herokuapp.com)
 
 ### Setup
 
