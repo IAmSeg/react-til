@@ -4,9 +4,9 @@
   "description": "TIL application built with React, express and webpack",
   "main": "index.js",
   "scripts": {
-    "prestart": "webpack",
+    "prestart": "webpack --config webpack.config.prod.js",
     "start": "nodemon index ENV=production",
-    "debug": "webpack && nodemon index ENV=development",
+    "debug": "webpack --config webpack.config.dev.js && nodemon index ENV=development",
     "test": "mocha --reporter spec --timeout 3000 --compilers js:babel-core/register"
   },
   "repository": {
