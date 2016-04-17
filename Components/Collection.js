@@ -25,7 +25,7 @@ export default class Collection extends Base {
   buildItems() {
     const files = this.props.files;
     return files.map(file => {
-      return <ListItem dirName={this.props.name} fileName={file.fileName} friendlyName={file.friendlyName} />
+      return <ListItem key={file.fileName} dirName={this.props.name} fileName={file.fileName} friendlyName={file.friendlyName} />
     });
   }
 }

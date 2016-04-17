@@ -30,8 +30,8 @@ router.get('/', (req, res, next) => {
     }
 
     // Render our index view with the List and Header components
-    const list = ReactDOMServer.renderToString(<List files={files} basePath={repoPath}/>);
-    const header = ReactDOMServer.renderToString(<Header color="pink" className="col s12" title="TIL" />);
+    const list = ReactDOMServer.renderToString(<div className="container"><List files={files} basePath={repoPath}/></div>);
+    const header = ReactDOMServer.renderToString(<Header color="orange darken-2" className="col s12" title="TIL" />);
     res.render('index', { list, header });
   });
 });
