@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/MrDoctorJ/react-til.svg?branch=master)](https://travis-ci.org/MrDoctorJ/react-til)
 [![Dependency Status](https://david-dm.org/mrdoctorj/generator-future-webapp.svg)](https://david-dm.org/mrdoctorj/generator-future-webapp)
 [![devDependency Status](https://david-dm.org/mrdoctorj/react-til/dev-status.svg)](https://david-dm.org/mrdoctorj/react-til#info=devDependencies)
-
+[![Code Climate](https://codeclimate.com/github/MrDoctorJ/react-til/badges/gpa.svg)](https://codeclimate.com/github/MrDoctorJ/react-til)
 # React TIL
 
 A small "Today I Learned" application written using Node, express and React. This app will read from a file system and generate a hierarchy of "TILs" and display them on a web page. You could point this app at a git repo and let all your people commit to it and let the app do its thing.
