@@ -12,7 +12,7 @@ const repoPath = path.join(__dirname, '../test-files');
  * @returns {boolean} - true to ignore the file, false to not ignore
  */
 function ignoreFunc(file, stats) {
-  let name = file.split('/');
+  let name = file.toString().split('/');
 
   // Ignore any files that start with a .
   return name[name.length - 1].charAt(0) === '.';

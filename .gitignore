@@ -3,4 +3,3 @@ builds
 access.log
 error.log
 .DS_Store
-test-files
