@@ -11,6 +11,11 @@ import fs from 'fs';
 
 import routes from './routes/index';
 
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import Header from './Components/Header';
+import Content from './Components/Content';
+
 const app = express();
 
 // view engine setup
@@ -54,27 +59,23 @@ app.use((req, res, next) => {
 });
 
 // error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use((err, req, res, next) => {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
 app.use((err, req, res, next) => {
+  const header = ReactDOMServer.renderToString(<Header title="Error" className="col s12" color="red" />);
+  const responseObject = { header };
+  const title = 'What have you done?!';
+  const message =
+    ReactDOMServer.renderToString(<div className="row">
+      <p>Something went wrong here, how about you head back <a href="/">home</a>?</p>
+    </div>);
+
   res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+
+  responseObject.message = ReactDOMServer.renderToString(<Content className="col s12" title={title} contents={message} />);
+  
+  if (app.get('env') === 'development')
+    responseObject.error = ReactDOMServer.renderToString(<Content className="col s12" contents={err} />);
+
+  res.render('error', responseObject);
 });
 
 export default app;
