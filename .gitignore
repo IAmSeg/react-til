@@ -1,5 +1,6 @@
 node_modules
 builds
 access.log
+error.log
 .DS_Store
 test-files

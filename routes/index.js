@@ -11,6 +11,13 @@ import fs from 'fs';
 import { repoPath, ignoreFunc } from '../utilities/file-utilities';
 import marky from 'marky-markdown';
 
+import winston from 'winston';
+const logger = new (winston.Logger)({
+  transports: [
+    new (winston.transports.File)({ filename: '../error.log', level: 'error' })
+  ]
+});
+
 const router = express.Router();
 
 /* GET home page. */
@@ -18,7 +25,7 @@ router.get('/', (req, res, next) => {
   // Get all the files
   recursive(repoPath, [ignoreFunc], (err, files) => {
     if (err) {
-      console.log(err);
+      logger.log('error', err);
       return;
     }
 
@@ -33,7 +40,16 @@ router.get('/', (req, res, next) => {
 router.get('/read/:dir/:name', (req, res, next) => {
   const title = req.params.name;
   const dirName = req.params.dir;
-  const fileContents = fs.readFileSync(path.join(repoPath, dirName, title + '.md'));
+  let fileContents;
+
+  // Try to read this file
+  try {
+    fileContents = fs.readFileSync(path.join(repoPath, dirName, title + '.md'));
+  }
+  catch(err) {
+    logger.log('error', err);
+  }
+
   const markdown = marky(fileContents.toString()).html();
 
   // Build header component

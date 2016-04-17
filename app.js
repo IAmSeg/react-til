@@ -2,11 +2,12 @@
 import express from 'express';
 import path from 'path';
 import logger from 'morgan';
+import winston from 'winston';
+import expressWinston from 'express-winston';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import handlebars from 'express-handlebars';
 import fs from 'fs';
-import morgan from 'morgan';
 
 import routes from './routes/index';
 
@@ -17,13 +18,18 @@ app.engine('handlebars', handlebars({defaultLayout: 'layout'}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// setup the loggers
+app.use(expressWinston.logger({
+  transports: [
+    new winston.transports.File({
+      filename: './error.log',
+      level: 'info'
+    })
+  ]
+}));
 
-// setup the logger
-app.use(logger('dev'));
 const accessLogStream = fs.createWriteStream(__dirname + '/access.log', {flags: 'a'});
-app.use(morgan('combined', { stream: accessLogStream }));
+app.use(logger('combined', { stream: accessLogStream }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
