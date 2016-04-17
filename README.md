@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/MrDoctorJ/react-til.svg?branch=master)](https://travis-ci.org/MrDoctorJ/react-til)
+[![Dependency Status](https://david-dm.org/mrdoctorj/generator-future-webapp.svg)](https://david-dm.org/mrdoctorj/generator-future-webapp)
+[![devDependency Status](https://david-dm.org/mrdoctorj/react-til/dev-status.svg)](https://david-dm.org/mrdoctorj/react-til#info=devDependencies)
 
 # React TIL
 
