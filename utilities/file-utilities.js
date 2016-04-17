@@ -64,7 +64,9 @@ function getFriendlyName(file) {
  * @returns {string} - file name without extension
  */
 function stripExtension(file) {
-  return file.slice(0, file.indexOf('.'));
+  if (file.indexOf('.') !== -1)
+    return file.slice(0, file.indexOf('.'));
+  return file;
 }
 
 export { repoPath, ignoreFunc, isFileInDirectory, getDirectories, getFriendlyName, stripExtension, getFileName };

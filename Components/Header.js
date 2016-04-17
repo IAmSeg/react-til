@@ -15,7 +15,7 @@ export default class Header extends Base {
   render() {
     let title = this.props.title;
     if (this.props.category)
-      title += ` - ${this.props.category}`;
+      title += ` in ${this.props.category}`;
 
     return (
       <nav className={this.props.color}>
@@ -23,6 +23,9 @@ export default class Header extends Base {
           <div className={this.props.className}>
             <a href="/" className="brand-logo">{title}</a>
           </div>
+          <ul className="right">
+            <li><a href="/"><i className="material-icons">home</i></a></li>
+          </ul>
         </div>
       </nav>);
   }

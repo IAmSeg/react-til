@@ -15,6 +15,7 @@ export default class Content extends Base {
     return (
       <div className="container">
         <div className="row">
+          <h3>{this.props.title}</h3>
           <div className={this.props.className} dangerouslySetInnerHTML={{__html: this.props.contents}} />
         </div>
       </div>

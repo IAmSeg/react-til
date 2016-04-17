@@ -8,7 +8,7 @@ import Content from '../Components/Content';
 import recursive from 'recursive-readdir';
 import path from 'path';
 import fs from 'fs';
-import { repoPath, ignoreFunc } from '../utilities/file-utilities';
+import { repoPath, ignoreFunc, getFriendlyName } from '../utilities/file-utilities';
 import marky from 'marky-markdown';
 
 import winston from 'winston';
@@ -30,8 +30,10 @@ router.get('/', (req, res, next) => {
     }
 
     // Render our index view with the List and Header components
-    const list = ReactDOMServer.renderToString(<div className="container"><List files={files} basePath={repoPath}/></div>);
-    const header = ReactDOMServer.renderToString(<Header color="orange darken-2" className="col s12" title="Today I Learned..." />);
+    const list =
+      ReactDOMServer.renderToString(<div className="container"><List files={files} basePath={repoPath}/></div>);
+    const header =
+      ReactDOMServer.renderToString(<Header color="green accent-4" className="col s12" title="Today I Learned..." />);
     res.render('index', { list, header });
   });
 });
@@ -39,6 +41,7 @@ router.get('/', (req, res, next) => {
 /* GET page for reading a file */
 router.get('/read/:dir/:name', (req, res, next) => {
   const title = req.params.name;
+  const friendlyTitle = getFriendlyName(title);
   const dirName = req.params.dir;
   let fileContents;
 
@@ -53,8 +56,10 @@ router.get('/read/:dir/:name', (req, res, next) => {
   const markdown = marky(fileContents.toString()).html();
 
   // Build header component
-  const header = ReactDOMServer.renderToString(<Header color="blue" className="col s12" title="TIL" category={dirName} />);
-  const contents = ReactDOMServer.renderToString(<Content className="col s12" contents={markdown} />);
+  const header =
+    ReactDOMServer.renderToString(<Header color="blue" className="col s12" title="Today I Learned" category={dirName} />);
+  const contents =
+    ReactDOMServer.renderToString(<Content className="col s12" title={friendlyTitle} contents={markdown} />);
 
   res.render('read', { header, contents, title, dirName });
 });

@@ -1,4 +1,4 @@
-### How to declare functions in JavaScript
+There are multiple ways to declare functions in JavaScript. Here are a few:
 
 ```javascript
 // Declarative

@@ -1,4 +1,4 @@
-### Declaring variables in PostCSS with cssnext
+This is how to declare and use variables in PostCSS
 
 ```css
 /* Declare a root element */
