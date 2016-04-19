@@ -7,7 +7,13 @@ from '../utilities/file-utilities';
 
 describe('ignoreFunc', function() {
   it('should ignore any files that start with a `.`', function() {
-    const files = ['hello.world', 'path/to/a/file.txt', '.git', '.hidden-file'];
+    const files = ['hello.md', 'path/to/a/file.md', '.git', '.hidden-file'];
+    const expected = [false, false, true, true];
+    expect(files.map(ignoreFunc)).to.eql(expected);
+  });
+
+  it('should ignore files that aren\'t markdown', function() {
+    const files = ['hello.md', 'a-file.md', 'cats.jpg', 'text.txt'];
     const expected = [false, false, true, true];
     expect(files.map(ignoreFunc)).to.eql(expected);
   });

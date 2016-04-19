@@ -13,9 +13,15 @@ const repoPath = path.join(__dirname, '../test-files');
  */
 function ignoreFunc(file, stats) {
   let name = file.toString().split('/');
+  let fileName = name[name.length - 1];
+  let extension = fileName.slice(fileName.indexOf('.'));
 
-  // Ignore any files that start with a .
-  return name[name.length - 1].charAt(0) === '.';
+  // don't ignore directories unless they start with a '.'
+  if (stats.isDirectory())
+    return fileName.charAt(0) === '.';
+
+  // Ignore any files that start with a '.' or aren't a markdown file
+  return fileName.charAt(0) === '.' || extension !== '.md';
 }
 
 /**
