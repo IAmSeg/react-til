@@ -1,21 +1,37 @@
 import mocha from 'mocha';
 import { should, expect, assert } from 'chai';
 import path from 'path';
+import fs from 'fs';
 
 import { ignoreFunc, isFileInDirectory, getDirectories, getFriendlyName, stripExtension, getFileName }
 from '../utilities/file-utilities';
 
 describe('ignoreFunc', function() {
   it('should ignore any files that start with a `.`', function() {
-    const files = ['hello.md', 'path/to/a/file.md', '.git', '.hidden-file'];
-    const expected = [false, false, true, true];
-    expect(files.map(ignoreFunc)).to.eql(expected);
+    const files = [
+      '../test-files/css/declaring-variables-in-postcss.md',
+      '../test-files/javascript/function-declarations-in-javascript.md',
+      '../test-files/javascript/.this-wont-be-shown'
+    ];
+    const expected = [false, false, true];
+
+    files.map((file, index) => {
+      expect(ignoreFunc(file, fs.lstatSync(path.join(__dirname, file)))).to.eql(expected[index]);
+    });
   });
 
   it('should ignore files that aren\'t markdown', function() {
-    const files = ['hello.md', 'a-file.md', 'cats.jpg', 'text.txt'];
-    const expected = [false, false, true, true];
-    expect(files.map(ignoreFunc)).to.eql(expected);
+    const files = [
+      '../test-files/css/declaring-variables-in-postcss.md',
+      '../test-files/css/this-wont-be-shown.txt',
+      '../test-files/javascript/function-declarations-in-javascript.md',
+      '../test-files/javascript/.this-wont-be-shown'
+    ];
+    const expected = [false, true, false, true];
+
+    files.map((file, index) => {
+      expect(ignoreFunc(file, fs.lstatSync(path.join(__dirname, file)))).to.eql(expected[index]);
+    });
   });
 });
 
