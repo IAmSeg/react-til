@@ -1,6 +1,8 @@
 engines:
   csslint:
     enabled: true
+    exclude_paths:
+     - "client/styles/one-dark.css"
   duplication:
     enabled: true
     config:
@@ -13,4 +15,5 @@ engines:
 exclude_paths:
  - "tests/**"
  - "test-files/**"
- - "client/styles/one-dark.css"
+ - "webpack.config.dev.js"
+ - "webpack.config.prod.js"
