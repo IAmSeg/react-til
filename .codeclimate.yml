@@ -1,19 +1,25 @@
+---
 engines:
   csslint:
     enabled: true
     exclude_paths:
-     - "client/styles/one-dark.css"
+    - "client/styles/one-dark.css"
   duplication:
     enabled: true
     config:
       languages:
-      - javascript
+      - ruby
   eslint:
     enabled: true
   fixme:
     enabled: true
+ratings:
+  paths:
+  - "**.css"
+  - "**.js"
+  - "**.jsx"
 exclude_paths:
- - "tests/**"
- - "test-files/**"
- - "webpack.config.dev.js"
- - "webpack.config.prod.js"
+- test/
+- test-files/
+- "webpack.config.dev.js"
+- "webpack.config.prod.js"
