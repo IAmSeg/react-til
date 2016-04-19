@@ -2,6 +2,7 @@
 :host {
   background-color: #282c34;
   color: #abb2bf;
+  padding: 1em;
 }
 .editor .line.cursor-line,
 :host .line.cursor-line {
