@@ -48,8 +48,14 @@ router.get('/read/:dir/:name', (req, res, next) => {
   const title = req.params.name;
   const friendlyTitle = getFriendlyName(title);
   const dirName = req.params.dir
-  let fileContents;
 
+  // if the request is for a static file, return it first
+  if (title.indexOf('.') !== -1) {
+    res.sendFile(path.join(repoPath, dirName.toLowerCase(), title));
+    return;
+  }
+
+  let fileContents;
   // Try to read this file
   try {
     fileContents = fs.readFileSync(path.join(repoPath, dirName.toLowerCase(), title + '.md'));
